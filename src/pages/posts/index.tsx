@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next'
-import Head from 'next/head'
+import Head from 'next/Head'
 import Link from 'next/link'
 
 import Prismic from '@prismicio/client'
