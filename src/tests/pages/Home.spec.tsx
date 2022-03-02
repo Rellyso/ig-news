@@ -29,13 +29,15 @@ describe('Home page', () => {
 
     const response = await getStaticProps({})
 
+    // console.log(response)
+
     expect(response).toEqual(
       expect.objectContaining({
         props: {
           product: {
             priceId: 'fake-price-id',
-            amount: 'R$ 10,00'
-          }
+            amount: 'R$\xa010,00'
+          },
         }
       })
     )
