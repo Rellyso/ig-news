@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from "next"
-import { useSession } from "next-auth/client"
 import { useRouter } from "next/router"
 import Head from "next/head"
 import Link from "next/link"
@@ -8,6 +7,7 @@ import { useEffect } from "react"
 import { getPrismicClient } from "../../../services/prismic"
 
 import styles from '../post.module.scss'
+import { useSession } from "next-auth/react"
 
 interface PostPreviewProps {
   post: {
@@ -20,7 +20,7 @@ interface PostPreviewProps {
 
 
 export default function PostPreview({ post }: PostPreviewProps) {
-  const [session] = useSession();
+  const { data: session } = useSession();
   const router = useRouter()
 
 

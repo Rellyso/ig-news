@@ -1,12 +1,12 @@
 import NProgress from 'nprogress';
 import { AppProps } from 'next/app';
-import { Provider as NextAuthProvider } from 'next-auth/client'
 import { Router } from 'next/router';
 
 import { Header } from '../components/Header';
 
 import '../styles/global.scss';
 import '../styles/nprogress.scss';
+import { SessionProvider } from 'next-auth/react';
 
 Router.events.on('routeChangeStart', (url) => {
   console.log(`Loading: ${url}`)
@@ -18,10 +18,10 @@ Router.events.on('routeChangeError', () => NProgress.done())
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <NextAuthProvider session={pageProps.session}>
+    <SessionProvider session={pageProps.session}>
       <Header />
       <Component {...pageProps} />
-    </NextAuthProvider>
+    </SessionProvider>
   )
 }
 
