@@ -14,10 +14,11 @@ export default NextAuth({
       authorization: {
         params: {
           scope: 'read:user'
-        }
-      }
+        },
+      },
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   // jwt: {
   //   signingKey: process.env.SIGNING_KEY,
   // },
