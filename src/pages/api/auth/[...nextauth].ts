@@ -88,8 +88,8 @@ export default NextAuth({
 
         return true
 
-      } catch {
-
+      } catch (e) {
+        console.log(e)
       }
     },
   }
